@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>GBK IOT KIT</title>
+	</head>
+	<body bgcolor="#2F4F4F">
+	
+	<!-- in the <button> tags below the ID attribute is the value sent to the arduino -->
+
+    <center><FONT SIZE="6" COLOR="#D9D9F3" FACE="COURIER"><b>GBK IOT KIT</FONT></b><br>
+    <FONT SIZE="3" COLOR="#D9D9F3" FACE="COURIER">"We LoVe OpEn SoUrCe"<br></FONT>
+    <br><hr>
+	<FONT SIZE="3" COLOR="#D9D9F3" FACE="COURIER">Ligar Lampada</FONT> 
+	<button id="10" class="led">Ligar/Desligar</button><br><br><hr>
+	<a href="http://www.gbkrobotics.com.br"><FONT SIZE="3" COLOR="#D9D9F3" FACE="COURIER">www.gbkrobotics.com.br</FONT></a><!-- button for pin 13 -->
+	</center>	
+	<script src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".led").click(function(){
+				var p = $(this).attr('id'); // get id value (i.e. pin13, pin12, or pin11)
+				// send HTTP GET request to the IP address with the parameter "pin" and value "p", then execute the function
+				$.get("http://192.168.4.1:80/", {pin:p}); // execute get request
+			});
+		});
+	</script>
+	</body>
+</html>
